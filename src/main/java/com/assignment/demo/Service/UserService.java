@@ -1,7 +1,7 @@
-package Service;
+package com.assignment.demo.Service;
 
-import Repository.UserRepository;
-import model.User;
+import com.assignment.demo.Repository.UserRepository;
+import com.assignment.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

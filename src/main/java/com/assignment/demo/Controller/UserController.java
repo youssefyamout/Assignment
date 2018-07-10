@@ -1,7 +1,7 @@
-package Controller;
+package com.assignment.demo.Controller;
 
-import Service.UserService;
-import model.User;
+import com.assignment.demo.Service.UserService;
+import com.assignment.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,11 +27,11 @@ public class UserController {
     }
 
     @PostMapping("/demo/user")
-    public HttpStatus register(User user) {
+    public HttpStatus register() {
 
         Instant instant = Instant.now();
         Long timeStamp = instant.getEpochSecond();
-        user = new User("Adam", "Ghani", timeStamp);
+        User user = new User("Adam", "Ghani", timeStamp);
         if (user.getFirstName().isEmpty() || user.getLastName().isEmpty())
             return HttpStatus.FORBIDDEN;
         else

@@ -1,6 +1,6 @@
-package Repository;
+package com.assignment.demo.Repository;
 
-import model.User;
+import com.assignment.demo.model.User;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
