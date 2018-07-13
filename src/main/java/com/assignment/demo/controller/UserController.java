@@ -1,6 +1,6 @@
-package com.assignment.demo.Controller;
+package com.assignment.demo.controller;
 
-import com.assignment.demo.Service.UserService;
+import com.assignment.demo.service.UserService;
 import com.assignment.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,9 +21,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/demo/{firstName}", produces = "application/json")
+    @GetMapping(value = "/demo/{firstName}")
     public Greetings getUser(@PathVariable String firstName) {
         return new Greetings("Hello " + userService.getUser(firstName).getFirstName());
+
     }
 
     @PostMapping("/demo/user")
@@ -44,12 +45,27 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    static class Greetings {
+    class Greetings {
 
         private String greetings;
 
         Greetings(String firstName) {
             this.greetings = firstName;
+        }
+
+        @Override
+        public String toString() {
+            return "Greetings{" +
+                    "greetings='" + greetings + '\'' +
+                    '}';
+        }
+
+        public String getGreetings() {
+            return greetings;
+        }
+
+        public void setGreetings(String greetings) {
+            this.greetings = greetings;
         }
     }
 

@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.neo4j.repository.config.EnableNeo4jRepositories;
 
 @SpringBootApplication
-@EnableNeo4jRepositories("com.assignment.demo.Repository")
+@EnableNeo4jRepositories("com.assignment.demo.repository")
 public class DemoApplication {
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package com.assignment.demo.Service;
+package com.assignment.demo.service;
 
-import com.assignment.demo.Repository.UserRepository;
+import com.assignment.demo.repository.UserRepository;
 import com.assignment.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,6 @@ public class UserService {
     }
 
     public Collection<User> getAllUsers() {
-        return userRepository.getAll();
+        return userRepository.findAll();
     }
 }
