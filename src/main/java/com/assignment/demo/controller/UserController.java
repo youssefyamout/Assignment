@@ -1,5 +1,6 @@
 package com.assignment.demo.controller;
 
+import com.assignment.demo.model.Course;
 import com.assignment.demo.service.UserService;
 import com.assignment.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class UserController {
 
     private final
     UserService userService;
+
 
     @Autowired
     public UserController(UserService userService) {
@@ -33,6 +35,10 @@ public class UserController {
         Instant instant = Instant.now();
         Long timeStamp = instant.getEpochSecond();
         User user = new User("Adam", "Ghani", timeStamp);
+        user.getCourseList().add(new Course("CSC310", "Instructor"));
+        user.getCourseList().add(new Course("Parallel Programming", "Instructor2"));
+        user.getCourseList().add(new Course("Data Mining", "Instructor3"));
+
         if (user.getFirstName().isEmpty() || user.getLastName().isEmpty())
             return HttpStatus.FORBIDDEN;
         else

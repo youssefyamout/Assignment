@@ -3,8 +3,11 @@ package com.assignment.demo.model;
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @NodeEntity
 public class User {
@@ -17,6 +20,17 @@ public class User {
     @NotNull
     private String lastName;
     private Long timestamp;
+
+    public List<Course> getCourseList() {
+        return courseList;
+    }
+
+    public void setCourseList(List<Course> courseList) {
+        this.courseList = courseList;
+    }
+
+    @Relationship(type = "CURRENTLY_TAKES")
+    private List<Course> courseList = new ArrayList<>();
 
 
     public Long getTimeStamp() {
