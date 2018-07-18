@@ -16,6 +16,7 @@ public class Course {
     private String instructor;
     @NotNull
     private String courseTitle;
+    
 
 
     public Course(String courseTitle, String instructor) {
